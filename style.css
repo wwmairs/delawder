@@ -1,0 +1,28 @@
+body {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#main {
+    white-space: nowrap;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#sidebar {
+    display: inline-block;
+}
+
+#gallery {
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.slide {
+    padding-left: 10px;
+    display: inline-block;
+    height: 100%;
+}

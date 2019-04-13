@@ -8,6 +8,13 @@ if (categoryData == null) {
 }
 
 // check url to build out images
+var params = new URLSearchParams(window.location.search);
+var cname = params.get("c");
+var pname = params.get("p");
+
+if (!(cname == null || pname == null)) {
+    makeImages(cname, pname, categoryData);
+}
 
 // only if we haven't already got the photo srcs in session storage
 function initData() {
@@ -44,7 +51,7 @@ function initData() {
 
 function makeSidebar(categoryData) {
     for (categoryName in categoryData) {
-        let sidebar = document.getElementById("sidebar");
+        let links = document.getElementById("links");
         let categoryLi = document.createElement("li");
         let toggle = document.createElement("a");
         let ul = document.createElement("ul");
@@ -55,7 +62,7 @@ function makeSidebar(categoryData) {
         ul.setAttribute("class", "project-link");
         categoryLi.appendChild(toggle);
         categoryLi.appendChild(ul);
-        sidebar.appendChild(categoryLi);
+        links.appendChild(categoryLi);
         let projects = categoryData[categoryName];
         Object.keys(projects).map((pname) => {
             let li = document.createElement("li");
@@ -69,6 +76,15 @@ function makeSidebar(categoryData) {
 }
 
 // helper that takes a category name and creates all the projects
-function makeImages(category, project, categoryData) {
-
+function makeImages(cname, pname, categoryData) {
+    var cont = document.getElementById("gallery");
+    var project = categoryData[cname][pname];
+    document.getElementById("project-date").innerHTML = project["date"];
+    document.getElementById("project-description").innerHTML = project["description"];
+    project["images"].map((src) => {
+        let img = document.createElement("img");
+        img.setAttribute("class", "slide");
+        img.setAttribute("src", src);
+        cont.appendChild(img);
+    });
 }
