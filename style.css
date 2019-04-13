@@ -3,6 +3,10 @@ body {
     margin-bottom: 0px;
 }
 
+#name {
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
 #main {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -12,6 +16,10 @@ body {
 
 #sidebar {
     grid-column: 1;
+}
+
+#mobile-sidebar {
+    display: none;
 }
 
 #gallery {
@@ -30,4 +38,13 @@ body {
 
 .slide:not(:last-child) {
     padding-right: 40px;
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    #sidebar {
+    }
+
+    #gallery {
+    }
 }

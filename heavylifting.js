@@ -87,15 +87,23 @@ function makeSidebar(categoryData) {
 
 // helper that takes a category name and creates all the projects
 function makeImages(cname, pname, categoryData) {
+    var i = 0;
     var cont = document.getElementById("gallery");
     var project = categoryData[cname][pname];
     document.getElementById("project-date").innerHTML = project["date"];
     document.getElementById("project-description").innerHTML = project["description"];
     project["images"].map((src) => {
+        let div = document.createElement("div");
+        let a = document.createElement("a");
         let img = document.createElement("img");
+        div.setAttribute("class", "slide");
         img.setAttribute("class", "slide");
         img.setAttribute("src", src);
-        cont.appendChild(img);
+        a.setAttribute("name", i);
+        i++;
+        div.appendChild(a);
+        div.appendChild(img);
+        cont.appendChild(div);
     });
 }
 
