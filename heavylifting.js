@@ -43,14 +43,24 @@ function initData() {
 }
 
 function makeSidebar(categoryData) {
-    console.log(categoryData);
     for (categoryName in categoryData) {
+        let sidebar = document.getElementById("sidebar");
+        let categoryLi = document.createElement("li");
+        let toggle = document.createElement("a");
+        let ul = document.createElement("ul");
+        toggle.setAttribute("target", categoryName);
+        toggle.setAttribute("class", "toggle");
+        toggle.innerHTML = categoryName;
+        ul.setAttribute("id", categoryName);
+        ul.setAttribute("class", "project-link");
+        categoryLi.appendChild(toggle);
+        categoryLi.appendChild(ul);
+        sidebar.appendChild(categoryLi);
         let projects = categoryData[categoryName];
-        let ul = document.getElementById(categoryName);
         Object.keys(projects).map((pname) => {
             let li = document.createElement("li");
             let link = document.createElement("a");
-            link.setAttribute("href", categoryName + ".html?project=" + pname);
+            link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
             link.innerHTML = pname;
             li.appendChild(link);
             ul.appendChild(li);
