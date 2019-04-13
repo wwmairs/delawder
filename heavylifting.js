@@ -2,6 +2,7 @@
 var params = new URLSearchParams(window.location.search);
 var cname = params.get("c");
 var pname = params.get("p");
+// this varname should change to something better
 var categoryData = sessionStorage.getItem("categories");
 
 if (categoryData == null) {
@@ -11,6 +12,8 @@ if (categoryData == null) {
     makeSidebar(categoryData);
     if (!(cname == null || pname == null)) {
         makeImages(cname, pname, categoryData);
+    } else {
+        makeSlideshow(categoryData);
     }
 }
 
@@ -47,6 +50,8 @@ function initData() {
             makeSidebar(categories);
             if (!(cname == null || pname == null)) {
                 makeImages(cname, pname, categories);
+            } else {
+                makeSlideshow(categories);
             }
             return categories;
         });
@@ -54,27 +59,29 @@ function initData() {
 
 function makeSidebar(categoryData) {
     for (categoryName in categoryData) {
-        let links = document.getElementById("links");
-        let categoryLi = document.createElement("li");
-        let toggle = document.createElement("a");
-        let ul = document.createElement("ul");
-        toggle.setAttribute("target", categoryName);
-        toggle.setAttribute("class", "toggle");
-        toggle.innerHTML = categoryName;
-        ul.setAttribute("id", categoryName);
-        ul.setAttribute("class", "project-link");
-        categoryLi.appendChild(toggle);
-        categoryLi.appendChild(ul);
-        links.appendChild(categoryLi);
-        let projects = categoryData[categoryName];
-        Object.keys(projects).map((pname) => {
-            let li = document.createElement("li");
-            let link = document.createElement("a");
-            link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
-            link.innerHTML = pname;
-            li.appendChild(link);
-            ul.appendChild(li);
-        });
+        if (categoryName != "slideshow") {
+            let links = document.getElementById("links");
+            let categoryLi = document.createElement("li");
+            let toggle = document.createElement("a");
+            let ul = document.createElement("ul");
+            toggle.setAttribute("target", categoryName);
+            toggle.setAttribute("class", "toggle");
+            toggle.innerHTML = categoryName;
+            ul.setAttribute("id", categoryName);
+            ul.setAttribute("class", "project-link");
+            categoryLi.appendChild(toggle);
+            categoryLi.appendChild(ul);
+            links.appendChild(categoryLi);
+            let projects = categoryData[categoryName];
+            Object.keys(projects).map((pname) => {
+                let li = document.createElement("li");
+                let link = document.createElement("a");
+                link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
+                link.innerHTML = pname;
+                li.appendChild(link);
+                ul.appendChild(li);
+            });
+        }
     }
 }
 
@@ -90,4 +97,28 @@ function makeImages(cname, pname, categoryData) {
         img.setAttribute("src", src);
         cont.appendChild(img);
     });
+}
+
+function makeSlideshow(categoryData){
+    console.log("hey", categoryData);
+    var cont = document.getElementById("gallery");
+    var images = categoryData["slideshow"]["slideshow"]["images"];
+    images.map((src) => {
+        let img = document.createElement("img");
+        img.setAttribute("class", "slide");
+        img.setAttribute("src", src);
+        img.style.display = "none";
+        cont.appendChild(img);
+    });
+    // set up timer n shiz
+    var nextSlide = function(slideIndex) {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "inline-block";
+        setTimeout(() => nextSlide((slideIndex + 1) % slides.length), 2000);
+    }
+
+    nextSlide(0);
 }
