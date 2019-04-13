@@ -1,3 +1,7 @@
+// check url to build out images
+var params = new URLSearchParams(window.location.search);
+var cname = params.get("c");
+var pname = params.get("p");
 var categoryData = sessionStorage.getItem("categories");
 
 if (categoryData == null) {
@@ -5,16 +9,12 @@ if (categoryData == null) {
 } else {
     categoryData = JSON.parse(categoryData);
     makeSidebar(categoryData);
+    if (!(cname == null || pname == null)) {
+        makeImages(cname, pname, categoryData);
+    }
 }
 
-// check url to build out images
-var params = new URLSearchParams(window.location.search);
-var cname = params.get("c");
-var pname = params.get("p");
 
-if (!(cname == null || pname == null)) {
-    makeImages(cname, pname, categoryData);
-}
 
 // only if we haven't already got the photo srcs in session storage
 function initData() {
@@ -45,6 +45,9 @@ function initData() {
                 window.sessionStorage.setItem("categories", JSON.stringify(categories));
             });
             makeSidebar(categories);
+            if (!(cname == null || pname == null)) {
+                makeImages(cname, pname, categories);
+            }
             return categories;
         });
 }

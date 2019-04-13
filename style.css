@@ -4,25 +4,30 @@ body {
 }
 
 #main {
-    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 25px;
     height: 100vh;
-    overflow: hidden;
 }
 
 #sidebar {
-    display: inline-block;
+    grid-column: 1;
 }
 
 #gallery {
-    height: 100%;
-    width: 100%;
+    grid-column: 2;
     overflow-x: scroll;
     white-space: nowrap;
     display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .slide {
-    padding-left: 10px;
     display: inline-block;
-    height: 100%;
+    height: 99%;
+}
+
+.slide:not(:last-child) {
+    padding-right: 40px;
 }
