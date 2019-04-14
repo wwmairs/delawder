@@ -60,26 +60,44 @@ function initData() {
 function makeSidebar(categoryData) {
     for (categoryName in categoryData) {
         if (categoryName != "slideshow") {
+            // desptop
             let links = document.getElementById("links");
             let categoryLi = document.createElement("li");
             let toggle = document.createElement("a");
             let ul = document.createElement("ul");
             toggle.setAttribute("target", categoryName);
-            toggle.setAttribute("class", "toggle");
+            toggle.setAttribute("class", "toggle sidebar-label");
             toggle.innerHTML = categoryName;
             ul.setAttribute("id", categoryName);
             ul.setAttribute("class", "project-link");
             categoryLi.appendChild(toggle);
             categoryLi.appendChild(ul);
             links.appendChild(categoryLi);
+            // mobile
+            links = document.getElementById("mobile-links");
+            categoryLi = document.createElement("li");
+            let label = document.createElement("span");
+            label.setAttribute("class", "sidebar-label");
+            label.innerHTML = categoryName;
+            categoryLi.appendChild(label);
+            links.appendChild(categoryLi);
+
             let projects = categoryData[categoryName];
             Object.keys(projects).map((pname) => {
+                // desktop
                 let li = document.createElement("li");
                 let link = document.createElement("a");
                 link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
                 link.innerHTML = pname;
                 li.appendChild(link);
                 ul.appendChild(li);
+                // mobile
+                li = document.createElement("li");
+                link = document.createElement("a");
+                link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
+                link.innerHTML = pname;
+                li.appendChild(link);
+                links.appendChild(li);
             });
         }
     }
