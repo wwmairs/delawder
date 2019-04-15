@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter:400i');
 body {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -13,7 +14,12 @@ a:hover {
     border-bottom: 2px solid #000000;
 }
 
-.name {
+.name a{
+    /*
+    font-family: 'Bitter', serif;
+    */
+    font-style: italic;
+    color: #000000;
 }
 
 #main {
@@ -26,6 +32,24 @@ a:hover {
 
 #sidebar {
     grid-column: 1;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.project-link {
+    transition: all 1s;
+}
+
+.project-link:not(.toggled) li {
+    display: none;
+}
+
+.project-link:not(.toggled) .sidebar-label:not(:hover) {
+    border: none;
+}
+
+.project-link .sidebar-label:hover {
+    cursor: pointer;
 }
 
 #mobile-sidebar {
