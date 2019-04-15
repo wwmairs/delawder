@@ -17,6 +17,10 @@ if (categoryData == null) {
     }
 }
 
+// bind events
+document.getElementById("toggle-menu").onclick = function(e) {
+    document.getElementById("mobile-links").classList.toggle("active");
+};
 
 
 // only if we haven't already got the photo srcs in session storage
@@ -74,13 +78,15 @@ function makeSidebar(categoryData) {
             categoryLi.appendChild(ul);
             links.appendChild(categoryLi);
             // mobile
-            links = document.getElementById("mobile-links");
+            let cont = document.getElementById("mobile-links");
+            links = document.createElement("ul");
             categoryLi = document.createElement("li");
             let label = document.createElement("span");
             label.setAttribute("class", "sidebar-label");
             label.innerHTML = categoryName;
             categoryLi.appendChild(label);
             links.appendChild(categoryLi);
+            cont.appendChild(links);
 
             let projects = categoryData[categoryName];
             Object.keys(projects).map((pname) => {

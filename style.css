@@ -1,10 +1,10 @@
 body {
     margin-top: 0px;
     margin-bottom: 0px;
+    font-family: Helvetica Neue, Helvetica, Arial;
 }
 
 .name {
-    font-family: Helvetica Neue, Helvetica, Arial;
 }
 
 #main {
@@ -27,15 +27,45 @@ body {
 }
 
 #mobile-links {
-    display: none;
+    position: fixed;
+    top: 16.6vh;
+    height: calc(83.3vh - 40px);
+    width: calc(100vw - 40px);
+    left: -768px;
+    transition: all 1s;
+    background: #ffffff;
+    border: 2px solid #000000;
+    outline: 21px solid #ffffff;
+    /* would be great if we could center this text vertically */
+    padding-top: 50px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+#mobile-links ul {
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+
+.sidebar-label {
+    text-decoration: none;
+    border-bottom: 1px solid #000000;
 }
 
 #toggle-menu {
     grid-column: 2;
+    text-align: center;
+    font-style: italic;
+}
+
+#toggle-menu a {
+    border-bottom: 2px solid #000000;
 }
 
 .active {
     display: initial;
+    left: 0px !important;
 }
 
 #gallery {
