@@ -101,6 +101,7 @@ function makeSidebar(categoryData) {
                 li = document.createElement("li");
                 link = document.createElement("a");
                 link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
+                link.setAttribute("class", "link");
                 link.innerHTML = pname;
                 li.appendChild(link);
                 links.appendChild(li);
