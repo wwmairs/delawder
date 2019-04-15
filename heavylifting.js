@@ -19,7 +19,7 @@ if (categoryData == null) {
 
 // bind events
 document.getElementById("toggle-menu").onclick = function(e) {
-    document.getElementById("mobile-links").classList.toggle("active");
+    document.getElementById("links-container").classList.toggle("active");
 };
 
 

@@ -26,7 +26,7 @@ body {
     grid-template-columns: 3fr 1fr;
 }
 
-#mobile-links {
+#links-container {
     position: fixed;
     top: 16.6vh;
     height: calc(83.3vh - 40px);
@@ -36,10 +36,15 @@ body {
     background: #ffffff;
     border: 2px solid #000000;
     outline: 21px solid #ffffff;
-    /* would be great if we could center this text vertically */
-    padding-top: 50px;
     margin: 20px;
     box-sizing: border-box;
+}
+
+#mobile-links {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #mobile-links ul {
