@@ -66,32 +66,30 @@ function makeSidebar(categoryData) {
         if (categoryName != "slideshow") {
             // desptop
             let links = document.getElementById("links");
-            let categoryLi = document.createElement("li");
-            let toggle = document.createElement("a");
+            let toggle = document.createElement("span");
             let ul = document.createElement("ul");
             toggle.setAttribute("target", categoryName);
             toggle.setAttribute("class", "toggle sidebar-label");
             toggle.innerHTML = categoryName;
             ul.setAttribute("id", categoryName);
             ul.setAttribute("class", "project-link");
-            categoryLi.appendChild(toggle);
-            categoryLi.appendChild(ul);
-            links.appendChild(categoryLi);
+            ul.appendChild(toggle);
+            links.appendChild(ul);
             // mobile
             let cont = document.getElementById("mobile-links");
             links = document.createElement("ul");
-            categoryLi = document.createElement("li");
+            let li = document.createElement("li");
             let label = document.createElement("span");
             label.setAttribute("class", "sidebar-label");
             label.innerHTML = categoryName;
-            categoryLi.appendChild(label);
-            links.appendChild(categoryLi);
+            li.appendChild(label);
+            links.appendChild(li);
             cont.appendChild(links);
 
             let projects = categoryData[categoryName];
             Object.keys(projects).map((pname) => {
                 // desktop
-                let li = document.createElement("li");
+                li = document.createElement("li");
                 let link = document.createElement("a");
                 link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
                 link.innerHTML = pname;
