@@ -15,22 +15,25 @@ if (categoryData == null) {
     } else {
         makeSlideshow(categoryData);
     }
+    bindEvents();
 }
 
 // bind events
-document.getElementById("toggle-menu").onclick = function(e) {
-    document.getElementById("links-container").classList.toggle("active");
-};
-
-let toggles = document.getElementsByClassName("toggle");
-for (let i = 0; i < toggles.length; i++) {
-    toggles[i].onclick = function(e) {
-        let currentlyToggled = document.getElementsByClassName("toggled");
-        for (let j = 0; j < currentlyToggled.length; j++) {
-            currentlyToggled[j].classList.remove("toggled");
+function bindEvents() {
+    document.getElementById("toggle-menu").onclick = function(e) {
+        document.getElementById("links-container").classList.toggle("active");
+    };
+    
+    let toggles = document.getElementsByClassName("toggle");
+    for (let i = 0; i < toggles.length; i++) {
+        toggles[i].onclick = function(e) {
+            let currentlyToggled = document.getElementsByClassName("toggled");
+            for (let j = 0; j < currentlyToggled.length; j++) {
+                currentlyToggled[j].classList.remove("toggled");
+            }
+            let el = e.target.parentElement
+            el.classList.toggle("toggled");
         }
-        let el = e.target.parentElement
-        el.classList.toggle("toggled");
     }
 }
 
@@ -69,6 +72,7 @@ function initData() {
             } else {
                 makeSlideshow(categories);
             }
+            bindEvents();
             return categories;
         });
 }
