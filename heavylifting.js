@@ -131,6 +131,7 @@ function makeImages(cname, pname, categoryData) {
     var i = 0;
     var cont = document.getElementById("gallery");
     var project = categoryData[cname][pname];
+    document.getElementById(cname).classList.add("toggled");
     document.getElementById("project-date").innerHTML = project["date"];
     document.getElementById("project-description").innerHTML = project["description"];
     project["images"].map((src) => {
