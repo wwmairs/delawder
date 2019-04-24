@@ -28,10 +28,12 @@ function bindEvents() {
     for (let i = 0; i < toggles.length; i++) {
         toggles[i].onclick = function(e) {
             let currentlyToggled = document.getElementsByClassName("toggled");
-            for (let j = 0; j < currentlyToggled.length; j++) {
-                currentlyToggled[j].classList.remove("toggled");
-            }
             let el = e.target.parentElement
+            for (let j = 0; j < currentlyToggled.length; j++) {
+                if (currentlyToggled[j] != el) {
+                    currentlyToggled[j].classList.remove("toggled");
+                }
+            }
             el.classList.toggle("toggled");
         }
     }
