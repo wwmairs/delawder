@@ -17,6 +17,11 @@ li.current a {
     font-style: italic;
 }
 
+.noscroll {
+    touch-action: none;
+    overflow: hidden;
+}
+
 .name a{
     font-style: italic;
     color: #000000;
@@ -78,10 +83,14 @@ li.current a {
     grid-template-columns: 3fr 1fr;
 }
 
+#mobile-sidebar .name {
+    padding-left: 10px;
+}
+
 #links-container {
     position: fixed;
-    top: 16.6vh;
-    height: calc(83.3vh - 40px);
+    top: calc(16.6vh - 25px);
+    height: calc(83.3vh - 40px + 25px);
     width: calc(100vw - 40px);
     left: -768px;
     transition: all 1s;
@@ -174,26 +183,39 @@ li.current a {
     padding-right: 40px;
 }
 
-#project-data {
+.project-data {
     position: absolute;
     bottom: 20px;
 }
 
-#project-date {
+.project-date {
     font-size: 14px;
     font-style: italic;
 }
 
-#project-description {
+.project-description {
     font-size: 14px;
     max-height: 200px;
     overflow: scroll;
+}
+
+.mobile-project-data {
+    display: none;
+    padding-bottom: 40px;
 }
 
 /* mobile */
 @media only screen and (max-width: 768px) {
     #sidebar {
         display: none;
+    }
+
+    .mobile-project-data {
+        display: block;
+    }
+
+    .project-description {
+        max-height: unset;
     }
 
     #gallery {

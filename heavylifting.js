@@ -25,6 +25,7 @@ if (categoryData == null) {
 function bindEvents() {
     document.getElementById("toggle-menu").onclick = function(e) {
         document.getElementById("links-container").classList.toggle("active");
+        document.body.classList.toggle("noscroll");
     };
     
     let toggles = document.getElementsByClassName("toggle");
@@ -158,8 +159,8 @@ function makeImages(cname, pname, categoryData) {
     // set sidebar according to cname and pname
     document.getElementById(cname).classList.add("toggled");
     document.getElementById(pname).classList.add("current");
-    document.getElementById("project-date").innerHTML = project["date"];
-    document.getElementById("project-description").innerHTML = project["description"];
+    Array.prototype.map.call(document.getElementsByClassName("project-date"), (e) => e.innerHTML = project["date"]);
+    Array.prototype.map.call(document.getElementsByClassName("project-description"), (e) => e.innerHTML = project["description"]);
     project["images"].map((src) => {
         let div = document.createElement("div");
         let a = document.createElement("a");
