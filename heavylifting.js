@@ -108,6 +108,7 @@ function makeSidebar(categoryData) {
             Object.keys(projects).map((pname) => {
                 // desktop
                 li = document.createElement("li");
+                li.setAttribute("id", pname);
                 let link = document.createElement("a");
                 link.setAttribute("href", "?c=" + categoryName + "&p=" + pname);
                 link.innerHTML = pname;
@@ -131,7 +132,9 @@ function makeImages(cname, pname, categoryData) {
     var i = 0;
     var cont = document.getElementById("gallery");
     var project = categoryData[cname][pname];
+    // set sidebar according to cname and pname
     document.getElementById(cname).classList.add("toggled");
+    document.getElementById(pname).classList.add("current");
     document.getElementById("project-date").innerHTML = project["date"];
     document.getElementById("project-description").innerHTML = project["description"];
     project["images"].map((src) => {
@@ -151,6 +154,7 @@ function makeImages(cname, pname, categoryData) {
 
 function makeSlideshow(categoryData){
     var cont = document.getElementById("gallery");
+    cont.classList.add("slideshow");
     var images = categoryData["slideshow"]["slideshow"]["images"];
     images.map((src) => {
         let img = document.createElement("img");
@@ -166,7 +170,7 @@ function makeSlideshow(categoryData){
             slides[i].style.display = "none";
         }
         slides[slideIndex].style.display = "inline-block";
-        setTimeout(() => nextSlide((slideIndex + 1) % slides.length), 2000);
+        setTimeout(() => nextSlide((slideIndex + 1) % slides.length), 3500);
     }
 
     nextSlide(0);
