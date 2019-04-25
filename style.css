@@ -22,6 +22,14 @@ li.current a {
     color: #000000;
 }
 
+.madeby {
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: .7;
+}
+
 .ig-link {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -45,7 +53,6 @@ li.current a {
     grid-column: 1;
     grid-row: 1 / 3;
     padding-left: 20px;
-    padding-top: 20px;
 }
 
 .project-link {
@@ -215,5 +222,11 @@ li.current a {
     #mobile-sidebar{
         display: grid;
     }
-
+    
+    .madeby {
+        position: initial;
+        margin-bottom: 10px;
+        grid-column: 2 / 4;
+        text-align: right;
+    }
 }
