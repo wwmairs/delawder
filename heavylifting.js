@@ -76,7 +76,7 @@ function initData() {
             if (!(cname == null || pname == null)) {
                 makeImages(cname, pname, categories);
             } else if (about) {
-                makeAbout(categoryData);
+                makeAbout(categories);
             } else {
                 makeSlideshow(categories);
             }
