@@ -125,8 +125,8 @@ li.current a {
     overflow-x: scroll;
     white-space: nowrap;
     display: inline-block;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .slideshow .slide {
@@ -156,7 +156,7 @@ li.current a {
 
 #project-description {
     font-size: 14px;
-    height: 200px;
+    max-height: 200px;
     overflow: scroll;
 }
 
