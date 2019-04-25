@@ -87,7 +87,7 @@ function initData() {
 
 function makeSidebar(categoryData) {
     for (categoryName in categoryData) {
-        if (categoryName != "slideshow") {
+        if (categoryName != "slideshow" && categoryName != "about") {
             // desptop
             let links = document.getElementById("links");
             let toggle = document.createElement("span");
@@ -177,7 +177,18 @@ function makeImages(cname, pname, categoryData) {
 }
 
 function makeAbout(categoryData) {
-    console.log("about page");
+    var bio = categoryData["about"]["about"]["description"];
+    var div = document.createElement("div");
+    var p = document.createElement("p");
+    div.setAttribute("id", "about")
+    p.setAttribute("id", "bio");
+    p.innerHTML = bio;
+    div.appendChild(p);
+    p = document.createElement("p");
+    p.setAttribute("id", "contact");
+    p.innerHTML = "instagram ~ <a href='https://www.instagram.com/fern.boy/'>@fern.boy</a><br>email ~ ?<br>phone ~ ?";
+    div.appendChild(p);
+    document.getElementById("main").appendChild(div);
 }
 
 function makeSlideshow(categoryData) {

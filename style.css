@@ -204,6 +204,22 @@ li.current a {
     padding-bottom: 40px;
 }
 
+#about {
+    grid-row: 2;
+    grid-column: 2;
+    position: relative;
+    top: -25px;
+}
+
+#bio {
+    margin-top: 0px;
+}
+
+#contact {
+    font-size: 14px;
+    font-style: italic;
+}
+
 /* mobile */
 @media only screen and (max-width: 768px) {
     #sidebar {
