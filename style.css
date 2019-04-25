@@ -27,7 +27,6 @@ li.current a {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    opacity: .7;
 }
 
 .ig-link {
