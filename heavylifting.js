@@ -2,6 +2,7 @@
 var params = new URLSearchParams(window.location.search);
 var cname = params.get("c");
 var pname = params.get("p");
+var about = params.get("about") != null;
 // this varname should change to something better
 var categoryData = sessionStorage.getItem("categories");
 
@@ -12,6 +13,8 @@ if (categoryData == null) {
     makeSidebar(categoryData);
     if (!(cname == null || pname == null)) {
         makeImages(cname, pname, categoryData);
+    } else if (about) {
+        makeAbout(categoryData);
     } else {
         makeSlideshow(categoryData);
     }
@@ -71,6 +74,8 @@ function initData() {
             makeSidebar(categories);
             if (!(cname == null || pname == null)) {
                 makeImages(cname, pname, categories);
+            } else if (about) {
+                makeAbout(categoryData);
             } else {
                 makeSlideshow(categories);
             }
@@ -125,6 +130,24 @@ function makeSidebar(categoryData) {
             });
         }
     }
+    // gotta make extra about and ig links
+    [document.getElementById("links"), document.getElementById("mobile-links")].map((links) => {
+        // about 
+        let span = document.createElement("span");
+        span.setAttribute("class", "sidebar-label");
+        let link = document.createElement("a")
+        link.innerHTML = "about";
+        link.setAttribute("href", "?about");
+        span.appendChild(link);
+        links.appendChild(span);
+        // ig
+        span = document.createElement("span");
+        link = document.createElement("a")
+        link.setAttribute("class", "ig-link");
+        link.setAttribute("href", "https://www.instagram.com/fern.boy/");
+        span.appendChild(link);
+        links.appendChild(span);
+    });
 }
 
 // helper that takes a category name and creates all the projects
@@ -152,7 +175,11 @@ function makeImages(cname, pname, categoryData) {
     });
 }
 
-function makeSlideshow(categoryData){
+function makeAbout(categoryData) {
+    console.log("about page");
+}
+
+function makeSlideshow(categoryData) {
     var cont = document.getElementById("gallery");
     cont.classList.add("slideshow");
     var images = categoryData["slideshow"]["slideshow"]["images"];
