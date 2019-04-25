@@ -14,7 +14,7 @@ a:hover {
 }
 
 li.current a {
-    border-bottom: 2px dotted #000000;
+    font-style: italic;
 }
 
 .name a{
