@@ -65,6 +65,7 @@ li.current a {
 }
 
 #mobile-sidebar {
+    z-index: 1;
     display: none;
     grid-column: 1 / 4;
     grid-row: 1;
@@ -192,11 +193,23 @@ li.current a {
     #gallery {
         grid-column: 1 / 4;
         grid-row: 2;
+        overflow-x: initial;
+        white-space: initial;
     }
 
     .slide {
         width: 100%;
         height: unset;
+    }
+
+    .slide:not(:last-child) {
+        padding-right: 0px;
+        padding-bottom: 40px;
+    }
+
+    .slideshow .slide {
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     #mobile-sidebar{
