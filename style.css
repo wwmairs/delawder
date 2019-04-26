@@ -256,7 +256,12 @@ li.current a {
         padding-bottom: 40px;
     }
 
+    .slideshow {
+        position: relative;
+    }
+
     .slideshow .slide {
+        position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
     }
