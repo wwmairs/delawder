@@ -22,6 +22,11 @@ li.current a {
     overflow: hidden;
 }
 
+.name {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
 .name a{
     font-style: italic;
     color: #000000;
@@ -56,7 +61,6 @@ li.current a {
     position: relative;
     grid-column: 1;
     grid-row: 1 / 3;
-    padding-left: 20px;
 }
 
 .project-link {
