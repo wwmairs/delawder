@@ -2,6 +2,7 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
     font-family: Helvetica Neue, Helvetica, Arial;
+    font-size: 14px;
 }
 
 a {
@@ -129,7 +130,6 @@ li.current a {
 
 
 .sidebar-label {
-    font-size: 16px;
     font-style: italic;
     letter-spacing: 1px;
     border-bottom: 2px solid #000000;
@@ -193,12 +193,12 @@ li.current a {
 }
 
 .project-date {
-    font-size: 14px;
+    font-size: 12px;
     font-style: italic;
 }
 
 .project-description {
-    font-size: 14px;
+    font-size: 13px;
     max-height: 200px;
     overflow: scroll;
 }
@@ -211,9 +211,7 @@ li.current a {
 #about {
     grid-row: 2;
     grid-column: 2;
-    position: relative;
-    top: -25px;
-    max-width: 400px;
+    text-align: right;
 }
 
 #bio {
