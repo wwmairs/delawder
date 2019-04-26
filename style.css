@@ -90,7 +90,7 @@ li.current a {
 #links-container {
     position: fixed;
     top: calc(16.6vh - 25px);
-    height: calc(83.3vh - 40px + 25px);
+    height: calc(83.3vh - 40px + 10px);
     width: calc(100vw - 40px);
     left: -768px;
     transition: all 1s;
