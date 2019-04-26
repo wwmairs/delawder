@@ -186,7 +186,7 @@ function makeAbout(categoryData) {
     div.appendChild(p);
     p = document.createElement("p");
     p.setAttribute("id", "contact");
-    p.innerHTML = "instagram ~ <a href='https://www.instagram.com/fern.boy/'>@fern.boy</a><br>email ~ seanjdelawder@gmail.com";
+    p.innerHTML = "instagram ~ <a href='https://www.instagram.com/fern.boy/'>@fern.boy</a><br>email ~ <a href='mailto:seanjdelawder@gmail.com?Subject=Hey%20there'>seanjdelawder@gmail.com</a>";
     div.appendChild(p);
     document.getElementById("main").appendChild(div);
 }
