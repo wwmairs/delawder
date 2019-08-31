@@ -42,5 +42,13 @@
     <script src="heavylifting.js"></script>
 </body>
 
+<script>
+    [...document.getElementsByTagName("IMG")].map((el) => {
+        el.onerror = (e) => {
+            e.target.style.display = "none";
+        };
+    });
+</script>
+
 </html>
 
