@@ -142,10 +142,11 @@ function makeSidebar(categoryData) {
         span.appendChild(link);
         links.appendChild(span);
         // ig
+        var instaHandle = categoryData["about"]["instagram"]["description"];
         span = document.createElement("span");
         link = document.createElement("a")
         link.setAttribute("class", "ig-link");
-        link.setAttribute("href", "https://www.instagram.com/fern.boy/");
+        link.setAttribute("href", "https://www.instagram.com/" + instaHandle + "/");
         span.appendChild(link);
         links.appendChild(span);
     });
