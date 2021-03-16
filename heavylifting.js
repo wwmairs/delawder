@@ -178,6 +178,7 @@ function makeImages(cname, pname, categoryData) {
 
 function makeAbout(categoryData) {
     var bio = categoryData["about"]["about"]["description"];
+    var instaHandle = categoryData["about"]["instagram"]["description"];
     var div = document.createElement("div");
     var p = document.createElement("p");
     div.setAttribute("id", "about")
@@ -186,7 +187,8 @@ function makeAbout(categoryData) {
     div.appendChild(p);
     p = document.createElement("p");
     p.setAttribute("id", "contact");
-    p.innerHTML = "instagram ~ <a href='https://www.instagram.com/fern.boy/'>@fern.boy</a><br>email ~ <a href='mailto:seanjdelawder@gmail.com?Subject=Hey%20there'>seanjdelawder@gmail.com</a>";
+    p.innerHTML = "instagram ~ <a href='https://www.instagram.com/" + instaHandle + "/'>@"
+                  + instaHandle +"</a><br>email ~ <a href='mailto:seanjdelawder@gmail.com?Subject=Hey%20there'>seanjdelawder@gmail.com</a>";
     div.appendChild(p);
     document.getElementById("main").appendChild(div);
 }
